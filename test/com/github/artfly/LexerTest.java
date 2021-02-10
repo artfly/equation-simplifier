@@ -1,3 +1,5 @@
+package com.github.artfly;
+
 import com.github.artfly.lexer.Lexer;
 import com.github.artfly.lexer.Token;
 import com.github.artfly.lexer.TokenType;
