@@ -31,17 +31,22 @@ public class Lexer {
                     i = scanNumber(line, i, nLine);
                     continue;
                 }
-                Token token = switch (c) {
-                    case '(' -> new Token(c, nLine, TokenType.OP_BRACE);
-                    case ')' -> new Token(c, nLine, TokenType.CL_BRACE);
-                    case '+', '-', '*', '/', '^' -> new Token(c, nLine, TokenType.SIGN);
+                TokenType tokenType = switch (c) {
+                    case '(' -> TokenType.OP_BRACE;
+                    case ')' -> TokenType.CL_BRACE;
+                    case '+' -> TokenType.PLUS;
+                    case '-' -> TokenType.MINUS;
+                    case '/' -> TokenType.SLASH;
+                    case '*' -> TokenType.STAR;
+                    case '^' -> TokenType.POW;
                     default -> null;
                 };
 
-                if (token == null) {
+                if (tokenType == null) {
                     throw new IllegalStateException(String.format("Unexpected char '%s' at line %d", c, nLine));
                 }
-                tokens.add(token);
+
+                tokens.add(new Token(c, nLine, tokenType));
             }
             nLine++;
             tokens.add(new Token(null, nLine, TokenType.EOL));

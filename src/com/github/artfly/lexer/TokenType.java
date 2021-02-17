@@ -5,7 +5,11 @@ public enum TokenType {
     IDENTIFIER,
     OP_BRACE,
     CL_BRACE,
-    SIGN,
+    PLUS,
+    MINUS,
+    POW,
+    STAR,
+    SLASH,
     EOL,
     EOF
 }
