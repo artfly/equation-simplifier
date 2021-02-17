@@ -67,7 +67,7 @@ public class Lexer {
             i++;
         }
         tokens.add(new Token(sb.toString(), nLine, tokenType));
-        return i;
+        return i - 1;
     }
 
     private String readLine() {
