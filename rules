@@ -1,0 +1,6 @@
+EXPR := TERM
+TERM := FACTOR ( '+' | '-' FACTOR )*
+FACTOR := POWER ( '*' | '/' POWER )*
+POWER := NEGATED ( '^' NEGATED )*
+NEGATED := '-' PRIMARY | PRIMARY
+PRIMARY := VAR | CONST | '(' EXPR ')'
