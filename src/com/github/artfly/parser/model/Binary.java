@@ -1,3 +1,10 @@
 package com.github.artfly.parser.model;
 
-public record Binary(Operation operation, Expression lhs, Expression rhs) implements Expression {}
+import com.github.artfly.ExpressionVisitor;
+
+public record Binary(Operation operation, Expression lhs, Expression rhs) implements Expression {
+    @Override
+    public <T> T apply(ExpressionVisitor<T> visitor) {
+        return visitor.visit(this);
+    }
+}
