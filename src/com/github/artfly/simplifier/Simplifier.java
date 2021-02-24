@@ -12,7 +12,9 @@ public class Simplifier {
     }
 
     private static Expression simplify(Expression expression) {
-        ExpressionTransformer negationsTransformer = new NegationsApplier();
-        return expression.apply(negationsTransformer);
+        ExpressionTransformer negationsApplier = new NegationsApplier();
+        expression = expression.apply(negationsApplier);
+        AdditiveConstantFolder constantFolder = new AdditiveConstantFolder();
+        return constantFolder.fold(expression);
     }
 }

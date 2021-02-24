@@ -16,6 +16,7 @@ public class Main {
         String s = """
                 -(-(x - y))
                 -(-(-(-x)))
+                -3 * 4 + (-7) - -12 + 5 * x
                 """;
         BufferedReader br = new BufferedReader(new StringReader(s));
         Lexer lexer = new Lexer(br);
